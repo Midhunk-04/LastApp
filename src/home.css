@@ -1,0 +1,218 @@
+/* General styles for the home page */
+.home {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; /* Allow vertical scrolling */
+  position: relative; /* Ensure relative positioning for children */
+  font-family: 'Foldit', sans-serif; /* Apply Foldit font */
+}
+
+/* Initial section styles */
+.initial-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Stack content vertically */
+  padding-top: 3.8rem; /* Space for the fixed navbar */
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure the video is behind other content */
+}
+
+.background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.website-name {
+  z-index: 2; /* Ensure it is above the video */
+  color: white;
+  text-align: center;
+  font-family: 'Foldit', sans-serif; /* Apply Foldit font */
+}
+
+/* Circle button container */
+.button-container {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Circle button styles */
+.circle-button {
+  -webkit-text-size-adjust: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  box-sizing: border-box;
+  display: flex;
+  width: 100px; /* Adjust button size as needed */
+  height: 100px; /* Adjust button size as needed */
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(112, 255, 244, 0.2);
+  border-radius: 50%; /* Make the button circular */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #000; /* Button background color */
+  color: #fff; /* Button text color */
+  text-align: center;
+}
+
+/* Button hover effect */
+.circle-button:hover {
+  border-color: rgba(112, 255, 244, 0.5);
+  background-color: rgba(112, 255, 244, 0.1);
+  transform: scale(1.1);
+}
+
+/* Button active (click) effect */
+.circle-button:active {
+  transform: scale(0.9);
+  background-color: rgba(112, 255, 244, 0.2);
+}
+
+/* Black section styles */
+.black-section {
+  width: 100%;
+  min-height: 100vh; /* Ensures it takes full height, allowing for scrolling */
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Allows content to be placed within */
+  padding: 20px; /* Optional padding for aesthetics */
+  text-align: center;
+  font-family: 'Foldit', sans-serif; /* Apply Foldit font */
+}
+
+.black-section.hidden {
+  display: none; /* Hide the section when not active */
+}
+
+.black-section-image {
+  position: absolute;
+  left: 10px; /* Adjust the positioning */
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+  width: 500px; /* Increase the size as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.content {
+  max-width: 80%; /* Ensure the content is responsive */
+  padding: 20px; /* Padding for aesthetics */
+  font-family: 'Foldit', sans-serif; /* Apply Foldit font */
+}
+
+h1, h2 {
+  font-family: 'Foldit', sans-serif; /* Apply Foldit font */
+}
+
+p {
+  font-family: 'Foldit', sans-serif; /* Apply Foldit font */
+  max-width: 800px; /* Ensure the text doesn't stretch too wide */
+  margin: 0 auto; /* Center align the text block */
+}
+
+/* Typed cursor style */
+.typed-cursor {
+  font-family: 'Foldit', sans-serif; /* Ensure cursor font matches */
+  font-size: 1.2rem; /* Adjust cursor size as needed */
+}
+
+/* Popup overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure the popup is above other elements */
+}
+
+/* Popup container */
+.popup-container {
+  -webkit-text-size-adjust: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  overflow: auto;
+  margin: auto;
+  padding: 20px 20px 50px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(112, 255, 244, 0.2);
+  top: 0;
+  width: 90%;
+  height: 75%;
+  transition: all 200ms, opacity 200ms, transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 1;
+  transform: scaleX(1) scaleY(1) scaleZ(1);
+  display: block;
+  transform-style: preserve-3d;
+  background: #333;
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* Box options inside the popup */
+.box-options {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.option-box {
+  background: #444;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.option-box:hover {
+  background: #555;
+}

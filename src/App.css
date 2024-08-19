@@ -1,0 +1,418 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+
+
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f8f8;
+  background: url('https://res.allmacwallpaper.com/get/macbook-air-wallpapers/I-used-tempera-paint-this/19839-720.jpg');
+  color: #333;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Header styles */
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Logo styles */
+.logo-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-initials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between initials */
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+}
+
+.logo-fullname {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.logo-part {
+  display: inline-block;
+  position: relative;
+  opacity: 0;
+  transform: scale(0);
+  animation: reveal-word 2s forwards;
+}
+
+.logo-part:nth-child(1) {
+  animation-delay: 0.5s; /* Delay for "Last" */
+}
+
+.logo-part:nth-child(2) {
+  animation-delay: 1.5s; /* Delay for "Pass" */
+}
+
+@keyframes reveal-word {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Navbar links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+  flex: 1; /* Take up remaining space */
+  justify-content: center; /* Center the links */
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Dashboard container */
+.dashboard-container {
+  position: absolute;
+  right: 2rem; /* Distance from right edge */
+  top: 50%; /* Center vertically in the nav bar */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+}
+
+.cta-button {
+  background-color: #0070c9;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for 3D effect */
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  z-index: 1; /* Ensure the button is above the dashboard */
+}
+
+.cta-button:hover {
+  background-color: #005bb5;
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.button-icon {
+  font-size: 1.5rem;
+}
+
+.dashboard {
+  position: absolute;
+  top: 70px; /* Adjust based on button height and spacing */
+  right: 0;
+  width: 300px;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Glowing shadow */
+  transform: translateX(100%); /* Initially off-screen */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  visibility: hidden; /* Hidden by default */
+  z-index: 10; /* Ensure it's above other content */
+}
+
+.dashboard.show {
+  transform: translateX(0); /* Slide in */
+  opacity: 1;
+  visibility: visible;
+}
+
+.dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
+  z-index: -1;
+  animation: pulsate 1.5s infinite ease-in-out;
+}
+
+.dashboard h2 {
+  margin-top: 0;
+  color: #00ff00; /* Sci-fi green color */
+}
+
+.dashboard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard li {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+/* Main image and text container */
+.main-image {
+  position: relative;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1519157966190-7c18390cfb4b') no-repeat center center;
+  background-size: cover;
+}
+
+.text-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  color: #fff;
+  max-width: 100%; /* Adjust to fit within the image width */
+  border-radius: 5px;
+}
+
+.content-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.highlight-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.highlighted-text {
+  font-family: 'Orbitron', sans-serif; /* Set to Orbitron font */
+  font-size: 3em; /* Adjust size as needed */
+  color: #ffffff; /* Text color */
+  margin: 0; /* Remove default margins */
+  text-transform: uppercase; /* Capitalize all letters */
+}
+
+
+.options-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap; /* Allows wrapping for responsiveness */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.option-card {
+  width: 324px;
+  height: 373px;
+  background-color: #2a2a2a;
+  color: #ccc;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 255, 0, 0.5); /* Sci-fi glowing effect */
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-decoration: none; /* Remove underline from link */
+  color: inherit; /* Inherit text color */
+}
+
+.option-card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  background-color: #3a3a3a;
+}
+
+/* Specific styles for option cards */
+.option-card.terminator {
+  background-image: url('https://cdsassets.apple.com/live/7WUAS350/images/social/support-app-hero/delete-apps-hero-update.jpg');
+  background-size: cover; /* Cover the whole card */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  color: transparent; /* Hide text if the image covers the card */
+}
+
+.option-card.credentials {
+  background-image: url('https://www.apple.com/v/privacy/u/images/og__ishslgdhhimq.png?202407160921');
+  background-size: cover; /* Cover the whole card */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  color: transparent; /* Hide text if the image covers the card */
+}
+
+.option-card.device {
+  background-image: url('https://media.istockphoto.com/id/1364311626/photo/top-view-of-a-males-hands-holding-a-smartphone-mockup-on-working-table.jpg?s=612x612&w=0&k=20&c=1ZiA2QXR09jnF1QKmR1Z0XjqqnKoZxZbDaj504jclag=');
+  background-size: cover; /* Cover the whole card */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating the image */
+  color: transparent; /* Hide text if the image covers the card */
+}
+
+/* Footer styles */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Flash animation */
+@keyframes flash {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.flash-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.loginradius.com/blog/static/e5ad4ff7d24c4f15e9b0458123c880df/d3746/digi-privacy.jpg') no-repeat center center;
+  background-size: cover;
+  opacity: 0.5;
+  animation: flash 2s forwards; /* Updated duration */
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+/* Updated Logo Styles */
+.logo-initials {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between initials and emoji */
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+}
+
+.logo-icon {
+  font-size: 2rem; /* Adjust size as needed */
+  color: #fff; /* Adjust color as needed */
+  margin: 0 0.5rem; /* Space between letters and emoji */
+}
+/* Image container styles */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+/* Image container */
+.image-container {
+  position: relative;
+  height: 400px; /* Adjust based on the desired height of the image section */
+  overflow: hidden; /* Hide overflow to ensure the vignette effect is clean */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Vignette effect */
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none; /* Ensure this overlay does not interfere with interactions */
+}
+
+/* Centered text on image */
+.image-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  width: 80%; /* Adjust as needed */
+}
+
+.image-text h2 {
+  font-size: 3rem; /* Adjust as needed */
+  font-family: 'Space Grotesk', sans-serif; /* Unique font */
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Optional: adds shadow to text */
+}
+/* Additional styles for the video container */
+/* Additional styles for the video container */
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 70vh; /* Adjust this value as needed to cover the desired space */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
